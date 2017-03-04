@@ -13,8 +13,6 @@ class LauncherList extends Component {
 
         const elements = []
         for(let i = 0; i < 5; i++) {
-
-
             elements.push(`row_${i}`)
         }
 		this.state = {

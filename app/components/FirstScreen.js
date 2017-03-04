@@ -6,6 +6,9 @@ import NavButton from './NavButton'
 import LauncherList from './LauncherList'
 import ContactsSelector from './ContactsSelector'
 import WeatherWidget from './WeatherWidget'
+import SmartHomeWidget from './SmartHomeWidget'
+import RemindersContainer from '../containers/RemindersContainer'
+import QuickActionsContainer from '../containers/QuickActionsContainer'
 
 class FirstScreen extends Component {
 
@@ -21,17 +24,6 @@ class FirstScreen extends Component {
 				</View>
 
 				<View style={styles.mainContent}>
-					
-					{/*<View style={styles.mainContentsWrapper}>
-						{/*<View style={styles.backgroundImageWrapper}>*/}
-						
-							{/*<Image
-								style={[styles.backgroundImage, {width: width - 75, height: height}]}
-								source={require('./../images/background2.png')}
-							/>*/}
-						{/*</View>*/}
-						{/*<MainContents />*/}
-					{/*</View>*/}
 					<Image
 						style={[styles.backgroundImage, {width: width - 75, height: height}]}
 						source={require('./../images/background3.png')}
@@ -40,15 +32,20 @@ class FirstScreen extends Component {
 					
 					<View style={styles.mainContentSection}>
 						<WeatherWidget />
+						<QuickActionsContainer />
 					</View>
 
-					<View style={styles.mainContentSection}>
-						<Text>Here</Text>
-					</View>
+					<View style={{flex: 1}}>
+						<View style={[styles.mainContentSection, {marginBottom: 0}]}>
+						<SmartHomeWidget />
+						<RemindersContainer />
+						
 
-					{/*<View style={styles.contactsWrapper}>
-						<ContactsSelector />
-					</View>*/}
+					</View>
+					<ContactsSelector />
+					</View>
+					
+
 					
 				</View>
 				{/*<Text style={styles.title}>First Screen</Text>*/}

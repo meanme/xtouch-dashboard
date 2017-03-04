@@ -1,7 +1,6 @@
 import React, {Component, PropTypes} from 'react'
-import {View, Text, StyleSheet, Image, Linking} from 'react-native'
-import LinearGradient from 'react-native-linear-gradient';
-
+import {View, Text, TouchableOpacity, StyleSheet, Image, Linking} from 'react-native'
+import LinearGradient from 'react-native-linear-gradient'
 
 class LauncherApp extends Component {
 
@@ -20,6 +19,7 @@ class LauncherApp extends Component {
 		const props = this.props;
 		return (
 			<View style={styles.appWrapper}>
+                <TouchableOpacity activeOpacity={0.6}>
                 <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.linearGradient}>
                     {/*<Image
                         style={styles.launcherIcon}
@@ -30,8 +30,7 @@ class LauncherApp extends Component {
                         x
                         </Text>
                 </LinearGradient>
-
-                
+                </TouchableOpacity>
 			</View>
 		)
 	}
@@ -40,9 +39,9 @@ class LauncherApp extends Component {
 const styles = StyleSheet.create({
 
     linearGradient: {
-    flex: 1,
-    borderRadius: 5
-  },
+        flex: 1,
+        borderRadius: 5
+    },
 
 appText: {
     width: 50, 
@@ -52,11 +51,8 @@ appText: {
   launcherIcon: {
       width: 50,
       height: 50
-    //   flex: 1,
-    //   flexDirection: 'row',
-    // justifyContent: 'center',
-    // alignItems: 'stretch',
   },
+
   buttonText: {
     fontSize: 18,
     fontFamily: 'Gill Sans',
@@ -65,17 +61,6 @@ appText: {
     color: '#ffffff',
     backgroundColor: 'transparent',
   },
-	// appWrapper: {
-    //     flex: 1,
-    //     borderRadius: 20,
-    //     padding: 15,
-    //     marginBottom: 15,
-    //     flexDirection: 'row',
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    //     backgroundColor: 'blue'
-	// }
-
     appWrapper: {
         marginBottom: 15
         

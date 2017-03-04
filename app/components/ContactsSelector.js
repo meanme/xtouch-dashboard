@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react'
-import {View, Text, StyleSheet, ScrollView, ListView, Image} from 'react-native'
+import {View, Text, StyleSheet, TouchableOpacity, ScrollView, ListView, Image} from 'react-native'
 
 import LauncherApp from './LauncherApp'
 import Apps from '../constants/apps'
@@ -25,6 +25,10 @@ class ContactsSelector extends Component {
             }
         })
     }
+
+    selectContact = (contact) => {
+        alert(contact.givenName)
+    }
     
 	render () {
 		const props = this.props
@@ -35,18 +39,25 @@ class ContactsSelector extends Component {
                     ref={(scrollView) => { _scrollView = scrollView; }}
                     automaticallyAdjustContentInsets={false}
                     horizontal={true}
-                    style={[styles.scrollView, styles.horizontalScrollView]}>
+                    style={styles.scrollView}>
 
                     { this.state.contacts.map( (contact) => {
                         const imagePath = contact.thumbnailPath
                         return (
-                            <View key={contact.recordID} >
-                            <Image
-                                style={{width: 50, height: 50}}
-                                source={{uri: imagePath}}
-                            />
-                            <Text>{contact.givenName}</Text>
-                            </View>
+                            
+                            <TouchableOpacity 
+                                onPress={() => {
+                                    this.selectContact(contact)
+                                }}
+                                key={contact.recordID} 
+                                style={styles.contactWrapper}
+                                >
+                                <Image
+                                    style={styles.contactImage}
+                                    source={{uri: imagePath}}
+                                />
+                                <Text style={styles.contactLabel}>{contact.givenName}</Text>
+                            </TouchableOpacity>
                         )
                     } ) }
 
@@ -59,46 +70,60 @@ class ContactsSelector extends Component {
 }
 
 const styles = StyleSheet.create({
-	contactsWrapper: {
-        flex: 1,
-        backgroundColor: 'pink'
-	},
+    contactsWrapper: {
+        padding: 5,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: 5
+    },
+
     scrollView: {
-    backgroundColor: '#6A85B1',
-    height: 300,
-  },
-  horizontalScrollView: {
-    height: 120,
-  },
-  containerPage: {
-    height: 50,
-    width: 50,
-    backgroundColor: '#527FE4',
-    padding: 5,
-  },
-  text: {
-    fontSize: 20,
-    color: '#888888',
-    left: 80,
-    top: 20,
-    height: 40,
-  },
-  button: {
-    margin: 7,
-    padding: 5,
-    alignItems: 'center',
-    backgroundColor: '#eaeaea',
-    borderRadius: 3,
-  },
-  buttonContents: {
-    flexDirection: 'row',
-    width: 64,
-    height: 64,
-  },
-  img: {
-    width: 64,
-    height: 64,
-  }
+    },
+
+    containerPage: {
+        height: 50,
+        width: 50,
+        padding: 5,
+    },
+
+    text: {
+        fontSize: 20,
+        color: '#888888',
+        left: 80,
+        top: 20,
+        height: 40,
+    },
+
+    button: {
+        margin: 7,
+        padding: 5,
+        alignItems: 'center',
+        backgroundColor: '#eaeaea',
+        borderRadius: 3,
+    },
+
+    buttonContents: {
+        flexDirection: 'row',
+        width: 64,
+        height: 64
+    },
+
+    contactWrapper: {
+        marginLeft: 10,
+        marginRight: 10
+    },
+
+    contactImage: {
+        width: 50, 
+        height: 50, 
+        borderRadius: 50
+    },
+
+    contactLabel: {
+        textAlign: 'center',
+        color: '#FFFFFF',
+        fontWeight: 'bold'
+    }
 })
 
 

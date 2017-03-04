@@ -1,7 +1,8 @@
 'use strict'
 
 import React, {PropTypes} from 'react'
-import {NavigationExperimental, View, StyleSheet} from 'react-native'
+import {NavigationExperimental, View, StyleSheet, StatusBar} from 'react-native'
+
 import { connect } from 'react-redux'
 
 import First from './First'
@@ -31,6 +32,7 @@ class AppContainer extends React.Component {
 				render={props => (
 					// This mimics the same type of work done in a NavigationCardStack component
 					<View style={styles.container}>
+						<StatusBar hidden={true} />
 						<NavigationCard
 							// <NavigationTransitioner>'s render method passes `navigationState` as a 
 							// prop to here, so we expand it plus other props out in <NavigationCard>.

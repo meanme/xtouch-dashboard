@@ -51,6 +51,7 @@ class WeatherWidget extends Component {
 
                 <View style={styles.forecastWrapper}>
                     <Image style={{width: 30, height: 30}} source={require('./../images/weather/sun.png')} />
+                    <Text style={styles.timeClock}>53°</Text>
                 </View>
 
                 <View style={styles.timeOfDayWrapper}>
@@ -65,19 +66,21 @@ class WeatherWidget extends Component {
 const styles = StyleSheet.create({
 
     weatherWrapper: {
-        flex: 1,
-        padding: 2,
+        padding: 5,
+        backgroundColor: '#000000',
         flexDirection: 'row'
     },
     timeWrapper: {
         flexGrow: 1,
-        backgroundColor: 'blue',
         flexDirection: 'column',
         alignItems: 'center'
     },
     forecastWrapper: {
+        paddingLeft: 10,
+
         flexGrow: 5,
-        flexDirection: 'column'
+        alignItems: 'center',
+        flexDirection: 'row'
     },
 
     timeOfDayWrapper: {
@@ -92,7 +95,8 @@ const styles = StyleSheet.create({
 
 
     timeCalendar: {
-        color: '#FFFFFF'
+        color: '#FFFFFF',
+        fontSize: 10,
     },
     timeClock: {
         fontSize: 15,
