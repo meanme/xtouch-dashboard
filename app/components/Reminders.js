@@ -3,14 +3,26 @@ import { View, Text, StyleSheet, TouchableHighlightImage, Linking, ListView } fr
 import LinearGradient from 'react-native-linear-gradient'
 
 import Reminder from './Reminder'
+import RNCalendarEvents from 'react-native-calendar-events'
 
 class Reminders extends Component {
 
     constructor(props) {
         super(props)
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-
     }
+
+    // componentDidMount() {
+    //     RNCalendarEvents.fetchAllEvents('2016-08-19T19:26:00.000Z', '2017-08-19T19:26:00.000Z', ['1', '2'])
+    //         .then(events => {
+    //             // handle events
+    //             // alert('success')
+    //         })
+    //         .catch(error => {
+    //         // handle error
+    //         alert(error)
+    //     });
+    // }
 
     handleClick = () => {
         const url = 'tel:9876543210'

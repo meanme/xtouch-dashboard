@@ -4,7 +4,7 @@ import { ListView } from 'react-native'
 import Reminders from '../components/Reminders'
 
 const reminders = {
-    'Han': [
+    'Taro': [
         {
             action: 'Order',
             target: 'Panini Haven',
@@ -43,13 +43,23 @@ const reminders = {
             image: 'https://freaklootera.files.wordpress.com/2017/01/grsl-svods-x3wxwqkyplloxd2wkwlumpxfytx2dmbaltktrskhdx4rsdlwavmv5lhqw300.png?w=300',
             ts: 'Last ride: Yesterday'
         }
+    ],
+    'greg': [
+
+    ],
+    'don': [
+
+    ],
+    'Takashi': [
+        
     ]
+
 }
 
 
 const mapStateToProps = (state) => {
     return {
-        reminders: reminders['Han']
+        reminders: reminders['Taro']
     }
 }
 

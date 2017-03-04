@@ -9,9 +9,16 @@ const initialNavState = {
 	]
 }
 
+// Taro
+
+// greg
+
+// don
+
+// Takashi
 const initialContactState = {
 	contact: {
-		givenName: 'Han'
+		givenName: 'Taro'
 	}
 }
 

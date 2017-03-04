@@ -1,24 +1,34 @@
 import React, {Component, PropTypes} from 'react'
-import {View, Text, StyleSheet, Image, Linking} from 'react-native'
+import {View, Text, StyleSheet, TouchableOpacity, Image, Linking} from 'react-native'
 import ActionIcon from './ActionIcon'
 
 class QuickAction extends Component {
 
     handleClick = () => {
         const url = 'tel:9876543210'
-        Linking.canOpenURL(url).then(supported => {
-            if (supported) {
-                Linking.openURL(url)
-            } else {
-                alert('Don\'t know how to open URI: ' + url)
-            }
-        })
+
+        // Get the link
+        const uri = this.props.link
+
+        if (uri && uri != '') {
+
+            Linking.canOpenURL(url).then(supported => {
+                if (supported) {
+                    Linking.openURL(uri)
+                } else {
+                    alert('Don\'t know how to open URI: ' + uri)
+                }
+            })
+        }
+        
     }
+
+
 
 	render () {
 		const props = this.props
 		return (
-			<View style={styles.quickActionWrapper}>
+                <TouchableOpacity activeOpacity={0.6} onPress={this.handleClick} style={styles.quickActionWrapper}>
 
                 <View style={styles.imageWrapper}>
 
@@ -43,8 +53,7 @@ class QuickAction extends Component {
                     </View>
                         
                 </View>
-                
-			</View>
+                </TouchableOpacity>
 		)
 	}
 }

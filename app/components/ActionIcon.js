@@ -6,6 +6,7 @@ const RINSE = require('../images/actions/rinse.png')
 const UBER = require('../images/actions/uber.png')
 const UBEREATS = require('../images/actions/ubereats.png')
 const CHASE = require('../images/actions/chase.png')
+const PHONE = require('../images/actions/phone.png')
 
 class ActionIcon extends Component {
 
@@ -19,6 +20,9 @@ class ActionIcon extends Component {
         switch(this.props.type) {
             case 'eat24':
                 result = EAT24
+            break;
+            case 'phone':
+                result = PHONE
             break;
             case 'chase':
                 result = CHASE

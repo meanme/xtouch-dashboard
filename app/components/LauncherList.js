@@ -28,7 +28,11 @@ class LauncherList extends Component {
             id: 4,
             label: 'Contacts',
             uri: 'time://'
-        }]
+        },  {
+            id: 5,
+            label: 'Light',
+            nav: 'Third'
+        },]
 		this.state = {
 		    dataSource: ds.cloneWithRows(navElements)
 		}
