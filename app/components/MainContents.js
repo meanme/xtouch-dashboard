@@ -16,8 +16,7 @@ class MainContents extends Component {
 const styles = StyleSheet.create({
 	contents: {
 		flex: 1,
-		flexDirection: 'row',
-		backgroundColor: 'red'
+		flexDirection: 'row'
 	}
 })
 
