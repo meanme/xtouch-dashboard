@@ -1,12 +1,18 @@
 import { combineReducers } from 'redux'
 import * as NavigationStateUtils from 'NavigationStateUtils'
 
-import { NAV_PUSH, NAV_POP, NAV_JUMP_TO_KEY, NAV_JUMP_TO_INDEX, NAV_RESET } from './actions'
+import { NAV_PUSH, NAV_POP, NAV_JUMP_TO_KEY, NAV_JUMP_TO_INDEX, NAV_RESET, SELECT_CONTACT } from './actions'
 const initialNavState = {
 	index: 0,
 	routes: [
 		{ key: 'First', title: 'First' }
 	]
+}
+
+const initialContactState = {
+	contact: {
+		givenName: 'Han'
+	}
 }
 
 function navigationState(state = initialNavState, action) {
@@ -37,8 +43,21 @@ function navigationState(state = initialNavState, action) {
 	}
 }
 
+function contactState(state = initialContactState, action) {
+	switch(action.type) {
+		case SELECT_CONTACT: {
+			const contact = action.contact
+			return {...state, contact: contact}
+		}
+			
+		default: 
+			return state
+	}
+}
+
 const appReducers = combineReducers({
-	navigationState
+	navigationState,
+	contactState
 })
 
 export default appReducers

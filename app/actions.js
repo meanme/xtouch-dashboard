@@ -6,8 +6,17 @@ export const NAV_JUMP_TO_KEY = 'NAV_JUMP_TO_KEY'
 export const NAV_JUMP_TO_INDEX = 'NAV_JUMP_TO_INDEX'
 export const NAV_RESET = 'NAV_RESET'
 
+export const SELECT_CONTACT = 'SELECT_CONTACT'
+
 
 // *** Action Creators ***
+export function selectContact(contact) {
+	return {
+		type: SELECT_CONTACT,
+		contact
+	}
+}
+
 // The following action creators were derived from NavigationStackReducer
 export function navigatePush(state) {
 	state = typeof state === 'string' ? { key: state, title: state } : state

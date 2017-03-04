@@ -27,12 +27,13 @@ class ContactsSelector extends Component {
     }
 
     selectContact = (contact) => {
-        alert(contact.givenName)
+        this.props.selectContact(contact)
     }
     
 	render () {
 		const props = this.props
         let _scrollView = null
+
 		return (
 			<View style={styles.contactsWrapper} >
                 <ScrollView
@@ -43,6 +44,18 @@ class ContactsSelector extends Component {
 
                     { this.state.contacts.map( (contact) => {
                         const imagePath = contact.thumbnailPath
+
+
+                        // Check if this is the selected contact
+                        const imageStyles = [styles.contactImage]
+
+                        if(this.props.contact && this.props.contact.givenName === contact.givenName) {
+                            imageStyles.push({
+                                borderWidth: 3,
+                                borderColor: 'red'
+                            })
+                        }
+
                         return (
                             
                             <TouchableOpacity 
@@ -53,7 +66,7 @@ class ContactsSelector extends Component {
                                 style={styles.contactWrapper}
                                 >
                                 <Image
-                                    style={styles.contactImage}
+                                    style={imageStyles}
                                     source={{uri: imagePath}}
                                 />
                                 <Text style={styles.contactLabel}>{contact.givenName}</Text>

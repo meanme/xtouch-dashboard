@@ -13,11 +13,11 @@ class WeatherWidget extends Component {
         }
 
         // Initialize interval
-        setInterval( () => {
-            this.setState({
-                time: new Date()
-            })
-        }, 1000)
+        // setInterval( () => {
+        //     this.setState({
+        //         time: new Date()
+        //     })
+        // }, 1000)
     }
 
     handleClick = () => {

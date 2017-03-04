@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import {View, Text, StyleSheet, ListView} from 'react-native'
 
-import LauncherApp from './LauncherApp'
+import LauncherApp from './../containers/LauncherAppContainer'
 import Apps from '../constants/apps'
 
 class LauncherList extends Component {
@@ -11,12 +11,26 @@ class LauncherList extends Component {
 
 		const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
-        const elements = []
-        for(let i = 0; i < 5; i++) {
-            elements.push(`row_${i}`)
-        }
+//http://www.grokkingandroid.com/intents-of-androids-calendar-app/
+        const navElements = [{
+            id: 1,
+            label: 'Home',
+            nav: 'First'
+        }, {
+            id: 2,
+            label: 'Light',
+            nav: 'Second'
+        }, {
+            id: 3,
+            label: 'Calendar',
+            uri: 'market://details?id=com.eat24.app'
+        }, {
+            id: 4,
+            label: 'Contacts',
+            uri: 'time://'
+        }]
 		this.state = {
-		    dataSource: ds.cloneWithRows(elements)
+		    dataSource: ds.cloneWithRows(navElements)
 		}
 	}
     
@@ -26,7 +40,7 @@ class LauncherList extends Component {
 			<View style={styles.listWrapper} >
                 <ListView
                     dataSource={this.state.dataSource}
-                    renderRow={(rowData) => (<LauncherApp/>)}
+                    renderRow={(rowData) => (<LauncherApp {...rowData}/>)}
                 />
 			</View>
 		)

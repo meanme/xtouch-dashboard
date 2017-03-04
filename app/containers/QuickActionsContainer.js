@@ -43,13 +43,27 @@ const quickActions = {
             image: 'https://freaklootera.files.wordpress.com/2017/01/grsl-svods-x3wxwqkyplloxd2wkwlumpxfytx2dmbaltktrskhdx4rsdlwavmv5lhqw300.png?w=300',
             ts: 'Last ride: Yesterday'
         }
+    ],
+    'Sachin': [
+        {
+            action: 'Pay',
+            target: 'Chase',
+            description: 'Credit Card Bill',
+            link: '',
+            type: 'chase',
+            image: 'https://lh4.ggpht.com/zfXLEYjCcn-peZoNQpwfqYTg-KtFuzs80Twae8obhfL_HS4ydGsJ1EUHIoKcyhLw8Pk=w300',
+            ts: 'Last payment: 1/8/17'
+        },
     ]
 }
 
 
 const mapStateToProps = (state) => {
+    // Get the selected contact name
+
+    const contactName = (state.contactState.contact ? state.contactState.contact.givenName : 'Han')
     return {
-        actions: quickActions['Han']
+        actions: quickActions[contactName]
     }
 }
 

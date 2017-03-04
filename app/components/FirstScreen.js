@@ -4,7 +4,8 @@ import {View, Text, StyleSheet, Image, Dimensions} from 'react-native'
 import MainContents from './MainContents'
 import NavButton from './NavButton'
 import LauncherList from './LauncherList'
-import ContactsSelector from './ContactsSelector'
+// import ContactsSelector from './ContactsSelector'
+import ContactsSelectorContainer from '../containers/ContactsSelectorContainer'
 import WeatherWidget from './WeatherWidget'
 import SmartHomeWidget from './SmartHomeWidget'
 import RemindersContainer from '../containers/RemindersContainer'
@@ -19,7 +20,6 @@ class FirstScreen extends Component {
 			<View style={styles.container}>
 
 				<View style={styles.navBar}>
-					{/*<Text>Button</Text>*/}
 					<LauncherList />
 				</View>
 
@@ -42,7 +42,7 @@ class FirstScreen extends Component {
 						
 
 					</View>
-					<ContactsSelector />
+					<ContactsSelectorContainer />
 					</View>
 					
 
