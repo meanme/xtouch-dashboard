@@ -20,6 +20,7 @@ const {
 
 class AppContainer extends React.Component {
 	render() {
+		console.disableYellowBox = true
 		let { navigationState, backAction } = this.props
 
 		return (

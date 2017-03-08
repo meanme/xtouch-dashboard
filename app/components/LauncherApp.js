@@ -6,6 +6,7 @@ const HOME = require('./../images/nav/home.png')
 const LIGHT = require('./../images/nav/lightbulb.png')
 const CALENDAR = require('./../images/nav/calendar.png')
 const CONTACTS = require('./../images/nav/contact.png')
+const DRAW = require('./../images/nav/draw.png')
 
 class LauncherApp extends Component {
 
@@ -35,6 +36,9 @@ class LauncherApp extends Component {
             break;
             case 'Calendar':
                 result = CALENDAR
+            break;
+            case 'Draw':
+                result = DRAW
             break;
             
         }

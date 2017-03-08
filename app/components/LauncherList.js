@@ -23,14 +23,14 @@ class LauncherList extends Component {
         }, {
             id: 3,
             label: 'Calendar',
-            uri: 'market://details?id=com.eat24.app'
+            uri: 'market://details?id=com.google.android.calendar'
         }, {
             id: 4,
             label: 'Contacts',
-            uri: 'time://'
+            uri: 'skype://'
         },  {
             id: 5,
-            label: 'Light',
+            label: 'Draw',
             nav: 'Third'
         },]
 		this.state = {
