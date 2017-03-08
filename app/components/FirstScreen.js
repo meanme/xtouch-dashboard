@@ -26,7 +26,7 @@ class FirstScreen extends Component {
 				<View style={styles.mainContent}>
 					<Image
 						style={[styles.backgroundImage, {width: width - 75, height: height}]}
-						source={require('./../images/background3.png')}
+						source={require('./../images/background4.png')}
 					/>
 
 					
